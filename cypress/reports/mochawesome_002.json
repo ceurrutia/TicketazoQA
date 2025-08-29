@@ -1,0 +1,378 @@
+{
+  "stats": {
+    "suites": 8,
+    "tests": 8,
+    "passes": 8,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-08-29T13:34:00.000Z",
+    "end": "2025-08-29T13:34:23.408Z",
+    "duration": 23408,
+    "testsRegistered": 8,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a2fa1180-ef33-4dc7-9725-be865c67fb22",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ticketazoValidacionesRegister.cy.js",
+      "file": "cypress\\e2e\\ticketazoValidacionesRegister.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9ebe4257-16d9-42d3-af91-03db102273e1",
+          "title": "Muestra menjsa de error si los campos obligatorios no estan llenos",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe mostrar un cartel de rellnar los campos obligatorios",
+              "fullTitle": "Muestra menjsa de error si los campos obligatorios no estan llenos Debe mostrar un cartel de rellnar los campos obligatorios",
+              "timedOut": null,
+              "duration": 4682,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://ticketazo.com.ar/auth/registerUser');\ncy.get('button[type=\"submit\"]').click();\ncy.contains('Completa este campo').should('be.visible');",
+              "err": {},
+              "uuid": "58ed5dad-8c05-4fce-8353-3b24feac1e81",
+              "parentUUID": "9ebe4257-16d9-42d3-af91-03db102273e1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "58ed5dad-8c05-4fce-8353-3b24feac1e81"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4682,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "f41c26ad-e88f-4c6e-9cd5-35abe0e96ac6",
+          "title": "Muestra mensaje de error si el dni tiene menos de 8 numeros",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Campo dni debe tener 8 numeros",
+              "fullTitle": "Muestra mensaje de error si el dni tiene menos de 8 numeros Campo dni debe tener 8 numeros",
+              "timedOut": null,
+              "duration": 1790,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://ticketazo.com.ar/auth/registerUser');\ncy.get('[data-cy=\"input-dni\"]').type('01');\ncy.get('body').click();\ncy.contains('Utiliza un formato que coincida con el solicitado').should('be.visible');\ncy.get('[data-cy=\"input-dni\"]').should('have.value', '01');",
+              "err": {},
+              "uuid": "da41e3ff-ae11-440a-be37-a4bdb7e109e8",
+              "parentUUID": "f41c26ad-e88f-4c6e-9cd5-35abe0e96ac6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "da41e3ff-ae11-440a-be37-a4bdb7e109e8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1790,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "f3f83a9b-0c4f-45d1-bad7-4445e9c9e676",
+          "title": "DNI esta lmitado a 8 números enteros",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Campo dni debe aceptar exactamente 8 números",
+              "fullTitle": "DNI esta lmitado a 8 números enteros Campo dni debe aceptar exactamente 8 números",
+              "timedOut": null,
+              "duration": 2638,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://ticketazo.com.ar/auth/registerUser');\ncy.get('[data-cy=\"input-dni\"]').type('123456789');\ncy.get('body').click();\ncy.get('[data-cy=\"input-dni\"]').should('have.value', '12345678');",
+              "err": {},
+              "uuid": "09959a64-6016-47d3-bf92-37e68ab7f267",
+              "parentUUID": "f3f83a9b-0c4f-45d1-bad7-4445e9c9e676",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "09959a64-6016-47d3-bf92-37e68ab7f267"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2638,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "70687779-4507-4f1d-a1f5-b7949d946a8d",
+          "title": "Campo Teléfono - debe tener máximo 10 números",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Campo telefono debe aceptar exactamente 10 números no mas",
+              "fullTitle": "Campo Teléfono - debe tener máximo 10 números Campo telefono debe aceptar exactamente 10 números no mas",
+              "timedOut": null,
+              "duration": 2436,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://ticketazo.com.ar/auth/registerUser');\ncy.get('[data-cy=\"input-telefono\"]').type('1159554321');\ncy.get('body').click();\ncy.get('[data-cy=\"input-telefono\"]').should('have.value', '1159554321');",
+              "err": {},
+              "uuid": "986645e7-a399-4660-a490-a98157ca48f5",
+              "parentUUID": "70687779-4507-4f1d-a1f5-b7949d946a8d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "986645e7-a399-4660-a490-a98157ca48f5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2436,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "63ea4fa8-9a03-4a3f-8135-733d59dc1442",
+          "title": "El campo telefono no debe permitir ingresar una cadena de carcateres",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Campo telefono no debe permitir letras",
+              "fullTitle": "El campo telefono no debe permitir ingresar una cadena de carcateres Campo telefono no debe permitir letras",
+              "timedOut": null,
+              "duration": 2033,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://ticketazo.com.ar/auth/registerUser');\ncy.get('[data-cy=\"input-telefono\"]').type('asdf');\ncy.get('body').click();",
+              "err": {},
+              "uuid": "44a6840a-af10-47a0-80e5-d44e778f3b30",
+              "parentUUID": "63ea4fa8-9a03-4a3f-8135-733d59dc1442",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "44a6840a-af10-47a0-80e5-d44e778f3b30"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2033,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "5a1e8e6c-2d98-4ae0-919b-c58a1b90b78c",
+          "title": "El campo dni no debe permitir ingresar una cadena de carcateres",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Campo dni no debe permitir letras",
+              "fullTitle": "El campo dni no debe permitir ingresar una cadena de carcateres Campo dni no debe permitir letras",
+              "timedOut": null,
+              "duration": 1943,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://ticketazo.com.ar/auth/registerUser');\ncy.get('[data-cy=\"input-dni\"]').type('asdf');\ncy.get('body').click();",
+              "err": {},
+              "uuid": "eb787fd6-261b-4ef6-9318-b4f662cb7503",
+              "parentUUID": "5a1e8e6c-2d98-4ae0-919b-c58a1b90b78c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "eb787fd6-261b-4ef6-9318-b4f662cb7503"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1943,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "be1fcfad-9943-4d96-a48c-59da0ecc9872",
+          "title": "Se testea la seguridad de la contrasenia",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "La contrasenia deberia tener mas de 8 carcateres alfanumericos",
+              "fullTitle": "Se testea la seguridad de la contrasenia La contrasenia deberia tener mas de 8 carcateres alfanumericos",
+              "timedOut": null,
+              "duration": 1760,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://ticketazo.com.ar/auth/registerUser');\ncy.get('[data-cy=\"input-password\"]').type('123');\ncy.get('body').click();",
+              "err": {},
+              "uuid": "e8dac5ea-0dd3-46d8-a3af-708c1d37ac4a",
+              "parentUUID": "be1fcfad-9943-4d96-a48c-59da0ecc9872",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e8dac5ea-0dd3-46d8-a3af-708c1d37ac4a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1760,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "c2c5edb4-9de8-419f-a658-5c0353dc5d43",
+          "title": "Se testea Que el emailtenga @",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "La contrase;a deberia tener @",
+              "fullTitle": "Se testea Que el emailtenga @ La contrase;a deberia tener @",
+              "timedOut": null,
+              "duration": 1697,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://ticketazo.com.ar/auth/registerUser');\ncy.get('[data-cy=\"input-email\"]').type('endgmail');\ncy.get('body').click();\ncy.contains('Incluye un signo \"@\" en la dirección de correo electrónico. La dirección \"endgmail\" no incluye el signo \"@\".').should('be.visible');",
+              "err": {},
+              "uuid": "ba16486c-40cf-450d-a047-53e786cf84e5",
+              "parentUUID": "c2c5edb4-9de8-419f-a658-5c0353dc5d43",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ba16486c-40cf-450d-a047-53e786cf84e5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1697,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

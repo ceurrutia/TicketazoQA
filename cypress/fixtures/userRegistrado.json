@@ -1,0 +1,13 @@
+{
+    "nombres": "Maria",
+    "apellido": "Gomez",
+    "telefono": "1159554321",
+    "dni": "87009122",
+    "provincia": "Buenos Aires",
+    "localidad": "La Plata",
+    "fechaNacimiento": "22-07-1998",
+    "email": "g@example.com",
+    "confirmarEmail": "g@example.com",
+    "password": "password123!",
+    "repetirPassword": "password123!"
+}
