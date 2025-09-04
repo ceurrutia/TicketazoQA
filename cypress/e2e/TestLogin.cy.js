@@ -15,7 +15,7 @@ describe('Ingresa al sitio web y clickea el button Login', ()=>{
       it("Deberia poder loguearse con un usuario ya registrado", ()=>{
         cy.viewport('iphone-7')
         cy.visit('https://ticketazo.com.ar/auth/login')
-        cy.fixture('userLogin').then((user)=>{
+        cy.fixture('userRegistrado').then((user)=>{
           const email = user.email
           const password = user.password
 
