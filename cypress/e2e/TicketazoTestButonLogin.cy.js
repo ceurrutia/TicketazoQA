@@ -8,5 +8,18 @@ describe('Ingresa al sitio web y clickea el button Login', ()=>{
       cy.contains('button', 'Login').click( {force: true})
       cy.url().should('include', '/auth/login')
 
-  })
-})
+      it("Deberia poder loguearse con un usuario ya registrado", ()=>{
+        cy.fixture('userLogin').then((user)=>{
+          const email = user.email
+          const password = user.password
+
+          cy.get('input[data-cy="input-email"]').type(email)
+          cy.get('input[data-cy="input-password"]').type(password)
+          cy.get('button[type="submit"]').click()
+          cy.get('.text-red-500.text-center.mt-2')
+              .should('be.visible')
+              .and('contain.text', 'Usuario no confirmado')
+        })
+        })
+      })
+    })

@@ -2,12 +2,12 @@
     "nombres": "Maria",
     "apellido": "Gomez",
     "telefono": "1159554321",
-    "dni": "87009122",
-    "provincia": "Buenos Aires",
-    "localidad": "La Plata",
+    "dni": "67554399",
+    "provincia": "Ciudad Autónoma de Buenos Aires",
+    "localidad": "Almagro",
     "fechaNacimiento": "22-07-1998",
-    "email": "g@example.com",
-    "confirmarEmail": "g@example.com",
-    "password": "password123!",
-    "repetirPassword": "password123!"
+    "email": "tester23@test.com",
+    "confirmarEmail": "tester23@test.com",
+    "password": "Password123!",
+    "repetirPassword": "Password123!"
 }

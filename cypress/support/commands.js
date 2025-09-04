@@ -6,7 +6,7 @@ Cypress.Commands.add('register', (nombres, apellido, telefono, dni, provincia, l
     cy.get('input[data-cy="input-dni"]').type(dni)
     cy.get('input[data-cy="select-provincia"]').type(provincia);
     cy.contains(provincia).click()
-    cy.get('input[data-cy="select-localidad"]').type(localidad);
+    cy.get('input[data-cy="select-localidad"]').type(localidad + '{enter}')
 
     cy.get('[data-cy="input-fecha-nacimiento"]').within(() => {
         cy.get('[data-type="day"]').click().type('22')
@@ -19,6 +19,10 @@ Cypress.Commands.add('register', (nombres, apellido, telefono, dni, provincia, l
     cy.get('input[data-cy="input-password"]').type(password)
     cy.get('input[data-cy="input-repetir-password"]').type(repetirPassword)
 
+    cy.on('window:alert', (text) => {
+        expect(text).to.equal('Usuario registrado con éxito. Por favor, verifica tu correo electrónico para activar tu cuenta.')
+    })
     cy.get('button[type="submit"]').click()
+    cy.url().should('eq', 'https://ticketazo.com.ar/auth/login')
     
 })
