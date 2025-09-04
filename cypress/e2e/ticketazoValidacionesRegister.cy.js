@@ -89,11 +89,9 @@ describe('Se testea Que el emailtenga @', ()=>{
   describe('Registro con credenciales de usuario existente', () => {
     it('Muestra error si el usuario con ese mail ya existe', ()=>{
         cy.fixture('userRegistrado').then((user) =>{
-            cy.register(user.nombres, user.apellido, user.telefono, user.dni, user.provincia, user.localidad, user.fechaNacimiento, user.email, user.confirmarEmail, user.password, user.repetirPassword)
+          cy.CompletaRegistroForm(user)
+          cy.registroIncorrecto(user)
         })
-        cy.get('.text-red-500.text-center.mt-2')
-            .should('be.visible')
-            .and('contain.text', 'Ya existe un usuario registrado con ese correo electrónico')
-    })          
+    })
 })
 })
