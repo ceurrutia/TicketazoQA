@@ -27,23 +27,8 @@ npm -v
 
 This should display the installed versions of Node.js and npm.
 
-3. Install mochawsome
 
-To generate HTML reports from Cypress test results, install Mochawesome and related tools:
-
-npm install mochawesome mochawesome-merge mochawesome-report-generator --save-dev
-
-4. Verify scripts in your package.json file
-
-"scripts": {
-  "test:cypress": "npx cypress run",
-  "report:merge": "npx mochawesome-merge cypress/reports/*.json --output cypress/reports/report.json",
-  "report:generate": "npx marge cypress/reports/report.json -f reporte_final -o cypress/reports",
-  "test:report": "npm run test:cypress && npm run report:merge && npm run report:generate"
-}
-
-
-5. Project Setup
+45. Project Setup
 
 Clone the repository:
 
@@ -54,13 +39,15 @@ cd TicketazoQA
 6. Install project dependencies using the command
 
 * npm install
-
-7. Install Cypress
-
-* Install Cypress : npm install cypress 
 * Verify the installation: npx cypress -v
 
 This will display the installed Cypress version.
+
+7. Install mochawsome
+
+To generate HTML reports from Cypress test results, install Mochawesome and related tools:
+
+npm install mochawesome mochawesome-merge mochawesome-report-generator
 
 8. Run Cypress
 
