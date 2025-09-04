@@ -11,8 +11,8 @@ describe('Ingresa al sitio web y clickea el button Login', ()=>{
     })
 
 
-    describe("Deberia poder inciiar sesion con un usuario registrado", ()=>{
-      it("Deberia poder loguearse con un usuario ya registrado", ()=>{
+    describe("No deja ingresar con un usuario registrado pero no validado por mail", ()=>{
+      it("Deberia no dejar ingresar con un usuario registrado y no validado por mail", ()=>{
         cy.viewport('iphone-7')
         cy.visit('https://ticketazo.com.ar/auth/login')
         cy.fixture('userRegistrado').then((user)=>{
