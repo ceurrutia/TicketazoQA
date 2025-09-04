@@ -82,5 +82,18 @@ describe('Se testea Que el emailtenga @', ()=>{
     cy.get('body').click()
     cy.contains('Incluye un signo "@" en la dirección de correo electrónico. La dirección "endgmail" no incluye el signo "@".').should('be.visible')
   })
-}
-)
+
+
+  //REGISTRO CON EMIAL YA EXISTENTE EN LA BASE DE DATOS
+  
+  describe('Registro con credenciales de usuario existente', () => {
+    it('Muestra error si el usuario con ese mail ya existe', ()=>{
+        cy.fixture('userRegistrado').then((user) =>{
+            cy.register(user.nombres, user.apellido, user.telefono, user.dni, user.provincia, user.localidad, user.fechaNacimiento, user.email, user.confirmarEmail, user.password, user.repetirPassword)
+        })
+        cy.get('.text-red-500.text-center.mt-2')
+            .should('be.visible')
+            .and('contain.text', 'Ya existe un usuario registrado con ese correo electrónico')
+    })          
+})
+})
