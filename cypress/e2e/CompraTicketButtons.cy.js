@@ -13,6 +13,7 @@ describe('Compra Ticket Buttons', () => {
     })
 
     it('Debe redirigir al login si no está logueado', () => {
+      cy.viewport('iphone-7')
       cy.url().should('include', '/auth/login')
     
   })

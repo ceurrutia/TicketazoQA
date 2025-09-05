@@ -40,8 +40,9 @@ Actor Principal: Usuario no registrado
 5.	El usuario acepta los términos y condiciones.
 6.	El usuario hace clic en el botón "Registrarse".
 7.	El sistema crea una nueva cuenta de usuario en la base de datos.
-8.	El sistema redirige al usuario a la pagina de login.
-9.	El usuario puede iniciar sesión con sus credenciales.
+8. El usuario debe validar su cuenta con su email registrado.
+9.	El sistema redirige al usuario a la pagina de login.
+10.	El usuario puede iniciar sesión con sus credenciales validadas.
 
 ### Postcondiciones:
 
