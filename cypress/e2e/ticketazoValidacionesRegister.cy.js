@@ -26,6 +26,7 @@ describe('Muestra mensaje de error si el dni tiene menos de 8 numeros', ()=>{
 
 describe('DNI esta lmitado a 8 números enteros', () => {
   it('Campo dni debe aceptar exactamente 8 números', () => {
+    cy.viewport('iphone-x')
     cy.visit('https://ticketazo.com.ar/auth/registerUser')
     cy.get('[data-cy="input-dni"]').type('123456789') 
     cy.get('body').click()
@@ -67,6 +68,7 @@ describe('El campo dni no debe permitir ingresar una cadena de carcateres', ()=>
 //TEST CONTRASENIA NO SEGURA, MENOS DE 8 CARACTERES
 describe('Se testea la seguridad de la contrasenia', ()=>{
   it('La contrasenia deberia tener mas de 8 carcateres alfanumericos', ()=>{
+    cy.viewport('iphone-x')
     cy.visit('https://ticketazo.com.ar/auth/registerUser')
     cy.get('[data-cy="input-password"]').type('123')
     cy.get('body').click()
@@ -77,6 +79,7 @@ describe('Se testea la seguridad de la contrasenia', ()=>{
 //TEST EMAIL SIN @
 describe('Se testea Que el emailtenga @', ()=>{
   it('La contrase;a deberia tener @', ()=>{
+    cy.viewport('iphone-x')
     cy.visit('https://ticketazo.com.ar/auth/registerUser')
     cy.get('[data-cy="input-email"]').type('endgmail')
     cy.get('body').click()
@@ -88,6 +91,7 @@ describe('Se testea Que el emailtenga @', ()=>{
   
   describe('Registro con credenciales de usuario existente', () => {
     it('Muestra error si el usuario con ese mail ya existe', ()=>{
+      cy.viewport('iphone-x')
         cy.fixture('userRegistrado').then((user) =>{
           cy.CompletaRegistroForm(user)
           cy.registroIncorrecto(user)
