@@ -39,7 +39,7 @@ describe('DNI esta lmitado a 8 números enteros', () => {
 describe('Campo Teléfono - debe tener máximo 10 números', () => {
   it('Campo telefono debe aceptar exactamente 10 números no mas', () => {
     cy.visit('https://ticketazo.com.ar/auth/registerUser')
-    cy.get('[data-cy="input-telefono"]').type('1159554321') 
+    cy.get('[data-cy="input-telefono"]').type('115955432124') 
     cy.get('body').click()
     cy.get('[data-cy="input-telefono"]').should('have.value', '1159554321')
   })
