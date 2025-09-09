@@ -21,8 +21,7 @@ describe('Registro de un cliente en Ticketazo', () => {
 
     cy.get('button[type="submit"]').click();
 
-    // Aserción: esperar redirección o mensaje de éxito
-        cy.wait(2000)
+        //al registrar ok redirige al login
   });
   
 
