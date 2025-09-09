@@ -18,3 +18,13 @@ describe('Compra Ticket Buttons', () => {
     
   })
 })
+
+//test olvida contraseña
+describe('Olvidé mi contraseña', () => {
+  it('Debería redirigir a la página de recuperación de contraseña', () => {
+    cy.viewport('iphone-7')
+    cy.visit('https://vps-3696213-x.dattaweb.com/auth/login')
+    cy.contains('button', 'Olvidaste tu contraseña').click()
+    cy.url().should('include', '/auth/forgotPassword')
+  })
+})
