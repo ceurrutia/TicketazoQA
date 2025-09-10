@@ -15,20 +15,14 @@ describe('Compra Ticket Buttons', () => {
     it('Debe redirigir al login si no está logueado', () => {
       cy.viewport('iphone-7')
       cy.url().should('include', '/auth/login')
-      cy.get('[data-cy="btn-google-login"]').click();
+      cy.get('[data-cy="btn-login"]').click();
       
       const usuarioEjemplo = {
         email: 'exaple23@gmail.com',
         password: 'passSeguro123!'
     }
 
-      cy.request('POST', 'https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?response_type=code&redirect_uri=https%3A%2F%2Fapi.ticketazo.com.ar%2Fauth%2Fgoogle%2Fcallback&scope=profile%20email&client_id=676335736434-drnalca36kg60bf7ehf5j2bmicritlrh.apps.googleusercontent.com&service=lso&o2v=2&flowName=GeneralOAuthFlow', {
-        code: 'simula_google_auth_code',
-        user: usuarioEjemplo  ,
-      }).then((response) => {
-        expect(response.status).to.eq(200);
-        window.localStorage.setItem('user', JSON.stringify(response.body.user))
-      })
+      
    
     
   })

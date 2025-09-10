@@ -12,6 +12,7 @@ Ticketazo is a ticket purchasing platform where users can register, browse event
 ## Installation Guide
 
 1. Prerequisites
+
 * Git installed
 * A code editor (VS Code sugested)
 * Access to a command-line terminal (Terminal on macOS/Linux or PowerShell on Windows)
@@ -27,8 +28,7 @@ npm -v
 
 This should display the installed versions of Node.js and npm.
 
-
-45. Project Setup
+3. Project Setup
 
 Clone the repository:
 
@@ -36,20 +36,30 @@ git clone https://github.com/ceurrutia/TicketazoQA.git
 cd TicketazoQA
 
 
-6. Install project dependencies using the command
+4. Install project dependencies using the command
 
 * npm install
 * Verify the installation: npx cypress -v
 
 This will display the installed Cypress version.
 
-7. Install mochawsome
+5. Install mochawsome
 
 To generate HTML reports from Cypress test results, install Mochawesome and related tools:
 
 npm install mochawesome mochawesome-merge mochawesome-report-generator
 
-8. Run Cypress
+6. Run Cypress
 
 * To open the Cypress Test Runner:npx cypress open
 * To run tests in headless mode: npx cypress run
+
+--
+
+## Google Sheets Test Cases
+
+https://drive.google.com/drive/u/0/folders/15KFhavbxdlRh18bkgQqhEbtBHxNPgM2a
+
+## Trello
+
+https://trello.com/b/ip4VfYdb/ticketazo-xacademy-g9
