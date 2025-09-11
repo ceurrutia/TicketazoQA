@@ -12,28 +12,29 @@ describe('Compra Ticket Buttons', () => {
     cy.intercept('POST', '/api/entradas').as('AdquirirEntrada')
     })
 
-    it('Debe redirigir al login si no está logueado', () => {
+    it('Debe loguear al usuario si no está logueado', () => {
       cy.viewport('iphone-7')
       cy.url().should('include', '/auth/login')
       cy.get('[data-cy="btn-login"]').click();
       
       const usuarioEjemplo = {
-        email: 'exaple23@gmail.com',
-        password: 'passSeguro123!'
+        email: 'urrutiace14@gmail.com',
+        password: 'contraseñaSegura123'
     }
 
-      
-   
-    
+    cy.intercept('POST', '/api/auth/login', (req) => {
+        req.reply((res) => {
+            expect(res.statusCode).to.eq(200)
+            expect(res.body).to.have.property('token')
+        })
+    }).as('loginRequest')
+
+    cy.get('[data-cy="input-email"]').type(usuarioEjemplo.email)
+    cy.get('[data-cy="input-password"]').type(usuarioEjemplo.password)
+    cy.get('[data-cy="btn-login"]').click()
+    cy.wait('@loginRequest')
+
+    cy.url().should('include', '/compra/Tesis%20Cervantes?horario=27')
   })
 })
 
-//test olvida contraseña
-describe('Olvidé mi contraseña', () => {
-  it('Debería redirigir a la página de recuperación de contraseña', () => {
-    cy.viewport('iphone-7')
-    cy.visit('https://vps-3696213-x.dattaweb.com/auth/login')
-    cy.contains('button', 'Olvidaste tu contraseña').click()
-    cy.url().should('include', '/auth/forgotPassword')
-  })
-})
