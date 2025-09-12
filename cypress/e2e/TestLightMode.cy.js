@@ -12,7 +12,7 @@ describe("Se testea button modo oscuro a modo claro", () => {
   })
 }) 
 
-//no tiene eleccion de modo claro en celulares
+//tiene eleccion de modo claro en celulares
     describe('Debería cambiar de modo oscuro a claro al hacer clic en el botón en celulares', () => {
     it('Puede cambiar de modo claro a oscuro en celulares', () => {
       cy.viewport('iphone-x')
