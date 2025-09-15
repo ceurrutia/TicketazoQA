@@ -24,7 +24,37 @@ describe('Registro de un cliente en Ticketazo', () => {
         //al registrar ok redirige al login
   });
   
+  //  Caso negativo : Leyenda " complete los campos requeridos"
+  
+  // Datos base para los campos
+  const datos = {
+    '[data-cy="input-razon-social"]': 'Dan Eventos',
+    '[data-cy="input-cuit"]': '27-25632598-6',
+    '[data-cy="select-provincia"]': 'Buenos Aires{enter}',
+    '[data-cy="select-localidad"]': 'Chacabuco{enter}',
+    '[data-cy="input-direccion"]': 'Rivadavia 102',
+    '[data-cy="input-telefono"]': '1152635263',
+    '[data-cy="input-email"]': `daneventos${Date.now()}@test.com`,
+    '[data-cy="input-confirmar-email"]': `daneventos${Date.now()}@test.com`,
+    '[data-cy="input-password"]': 'Password123!',
+    '[data-cy="input-repetir-password"]': 'Password123!',
+  };
 
+  const campos = Object.keys(datos);
+  campos.forEach((campo) => {
+    it(`No debería registrar si falta el campo ${campo}`, () => {
+      // Rellenamos todos los campos menos el que se omite
+      Object.entries(datos).forEach(([selector, valor]) => {
+        if (selector !== campo) {
+          cy.get(selector).type(valor);
+        }
+      });
 
+      cy.get('button[type="submit"]').click();
+
+      // Aserción: mensaje de error esperado
+      cy.contains('Completa este campo').should('exist');
+    });
+   });
 
 });
