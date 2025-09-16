@@ -39,3 +39,4 @@ Cypress.Commands.add('registroIncorrecto', (user) => {
       .should('be.visible')
       .and('contain.text', 'Ya existe un usuario registrado con ese correo electrónico')
 })
+
