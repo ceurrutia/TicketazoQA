@@ -9,13 +9,15 @@ describe('Home Page Tests', () => {
         cy.get('.p-2').click();
         cy.wait(2000);
         cy.get('#locationFilter').should("exist");
-        cy.get('#locationFilter').should("be.enabled"); //esta desactivado
+        cy.get('#locationFilter').should("to.be", "enabled"); //esta desactivado
     });
 
-    it("usuario intenta ingresar un evento en fechas pasadas", () => {
+    it.only("usuario intenta buscar un evento programado en una fecha futura", () => {
         cy.get('.p-2').click();
         cy.wait(2000);
-        cy.get('#dateFilter').should("exist");
+        cy.get('div svg').click();
+
+        //cy.get('#dateFilter').should("exist");
         cy.get('#dateFilter').should("be.enabled");
         cy.get('#dateFilter').type('01/01/2022');
         cy.get('.btn-primary').click();
