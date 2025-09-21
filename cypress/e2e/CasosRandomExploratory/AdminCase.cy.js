@@ -6,36 +6,51 @@ describe("Pruebas utilizando el usuario admin", () => {
         Links.Thome();
     });
 
-    it.only("verificacion del buttom display", () => {
+    it("verfiicacion el codigo QR dinamico", () => {
+      ElementsES.LogElement();
+      
+     cy.visit('https://ticketazo.com.ar/scan');
+     cy.get('[data-cy="titulo-scan-qr"]').should('be.visible');
+     cy.get('[data-cy="titulo-scan-qr"]').should('exist');
+     cy.get('[data-cy="titulo-scan-qr"]').should('have.text', 'Escanear QR')
+     cy.url().should('eq', 'https://ticketazo.com.ar/scan');
+    });
+
+    it('admin clientes pendientes', () => {
+      ElementsES.LogElement();
+      cy.wait(2000);
+      cy.visit('https://ticketazo.com.ar/adminClients');
+
+      //
+      cy.get('[data-cy="btn-filtro-pendiente"]').should('be.visible', 'exist').click();
+      cy.contains('Nombre y Apellido').should('have.text', 'Nombre y Apellido', 'be.visible')
+      cy.contains('Tipo').should('have.text', 'Tipo', 'be.visible');
+      cy.contains('Email').should('have.text', 'Email', 'be.visible');
+      cy.contains('CUIT').should('have.text', 'CUIT', 'be.visible');
+      cy.contains('Provincia').should('have.text', 'Provincia', 'be.visible');
+    });
+
+    it('admin clientes Aprobado', () => {
       ElementsES.LogElement();
       cy.wait(1000);
-     
-      cy.get('.z-0.group').first()
-       .then($btn => {
-    $btn[0].click();  // accede al elemento nativo y lo clickea
-  }); 
-      //.invoke('click');
-      
-     // cy.get('[href="/tickets/list"]', 'Mis entradas').should('be.visible').click();
-      //.should('exist', 'be.visible', 'be.enabled').click();
-      
-    //    cy.get('[data-cy="input-titulo"]').type('el mejor');{ force: true }
-    //     cy.get('[data-cy="datepicker-fecha"]').select("");
-    //     cy.get('[data-cy="select-edad"] > .inline-flex');
-    //     cy.get('[data-cy="select-genero"] > .inline-flex')
-    //     cy.get('[data-cy="input-horario"]')
-    //     cy.get('[data-cy="input-duracion"]')
-    //     cy.get('[data-cy="select-lugar-evento"]')
-    //     cy.get('.flex.col-span-1 > .tap-highlight-transparent')
-    //     cy.get('.rounded-b-large > .z-0')
+      cy.visit('https://ticketazo.com.ar/adminClients');
 
+      cy.get('[data-cy="btn-filtro-aprobado"]').click();
+       cy.contains('Nombre y Apellido').should('have.text', 'Nombre y Apellido', 'be.visible')
+      cy.contains('Tipo').should('have.text', 'Tipo', 'be.visible');
+      cy.contains('Email').should('have.text', 'Email', 'be.visible');  
     });
 
-    it('Links de redireccionamiento para el admin', () => {
+    it('admin clientes Rechazado', () => {
       ElementsES.LogElement();
-    });
+      cy.wait(2000);
+      cy.visit('https://ticketazo.com.ar/adminClients');
+      cy.wait(3000);
+      cy.visit('[data-cy="btn-filtro-rechazado"]').should('be.visible', 'exist').click();
 
-    it('Happy patch, el admin debe poder eliminar eventos', () => {
-      ElementsES.LogElement();
+       cy.contains('Nombre y Apellido').should('have.text', 'Nombre y Apellido', 'be.visible')
+      cy.contains('Tipo').should('have.text', 'Tipo', 'be.visible');
+      cy.contains('Email').should('have.text', 'Email', 'be.visible');
+      
     })
 })
