@@ -5,5 +5,6 @@ la busqueda de fallos imperceptibles, como la tipografia, aspecto, usabilidad, E
 
 ## Enfoque
 * Pruebas exploratorias. 
-* Analisis de valores limite.
-* Revisicion de paginado 
+* Comprobacion y verificacion de areas no probadas en otros casos de prueba.
+* Busqueda de bugs, hallazgos o mejoras ocultas.
+* Revisicion de paginado. 

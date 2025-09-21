@@ -1,4 +1,5 @@
-import Links from "../../support/Accesos/Links";
+import Links from "../../support/AccesosYMas/Links";
+import ElementsES from "../../support/AccesosYMas/ElementsES";
 
 describe('Home Page Tests', () => {
     beforeEach(() => {
@@ -12,18 +13,15 @@ describe('Home Page Tests', () => {
         cy.get('#locationFilter').should("to.be", "enabled"); //esta desactivado
     });
 
-    it.only("usuario intenta buscar un evento programado en una fecha futura", () => {
-        cy.get('.p-2').click();
-        cy.wait(2000);
-        cy.get('div svg').click();
-
-        //cy.get('#dateFilter').should("exist");
-        cy.get('#dateFilter').should("be.enabled");
-        cy.get('#dateFilter').type('01/01/2022');
-        cy.get('.btn-primary').click();
-        cy.wait(2000);
-        cy.get('.Toastify__close-button--default').should("exist");
-        cy.get('.Toastify__close-button--default').should("be.enabled");
+    it("usuario intenta buscar un evento programado en una fecha futura", () => {
+        //seleccionar la barra de busqueda desplegable y seleccionar el atributo date  
+        cy.get('.p-2').should('exist').click();
+        cy.get('[data-slot="start-input"]').first()
+        .should('exist', 'be.visible');
+        
+        ElementsES.dateInput('2025', '1', '22');
+        //.should('be.visible');
+        
     });
 });
 
