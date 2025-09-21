@@ -2,12 +2,12 @@ it('Muestra errores secuenciales en registro', () => {
   cy.visit('https://ticketazo.com.ar/auth/registerUser')
 
   //datos de usuario
-  cy.get('[data-cy="input-nombres"]').type('Fulano')
-  cy.get('[data-cy="input-apellido"]').type('desk')
-  cy.get('[data-cy="input-telefono"]').type('3525636386')
-  cy.get('[data-cy="input-dni"]').type('30324735')
+  cy.get('[data-cy="input-nombres"]').type('Fulanooooooooooooooooooo')
+  cy.get('[data-cy="input-apellido"]').type('deskkkkkkkkkkkkkkkkkkkk')
+  cy.get('[data-cy="input-telefono"]').type('1111111111')
+  cy.get('[data-cy="input-dni"]').type('11111111')
   cy.get('[data-cy="select-provincia"]').click()
-  //cy.wait(2000)
+  cy.wait(2000)
 
   cy.get('[data-cy="select-provincia"]').type('Córdoba{enter}')
   cy.get('[data-cy="select-localidad"]').click()
@@ -16,7 +16,7 @@ it('Muestra errores secuenciales en registro', () => {
 
   cy.contains('dd').type('10')
   cy.contains('mm').type('07')
-  cy.contains('aaaa').type('1990')
+  cy.contains('aaaa').type('1900')
 
   // Completar con datos erróneos
   cy.get('input[name="email"]').type('toty__++++++.}}}}--@hey.com')
