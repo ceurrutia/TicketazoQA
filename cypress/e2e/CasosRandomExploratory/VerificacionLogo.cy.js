@@ -1,4 +1,4 @@
-import Links from "../../support/Accesos/Links"
+import Links from "../../support/AccesosYMas/Links";
 
 describe("verificar que el logo redireccione al home page independientemente de la vista en la que este", () => {
     beforeEach(() => {
@@ -21,10 +21,10 @@ describe("verificar que el logo redireccione al home page independientemente de 
        cy.url('https://ticketazo.com.ar/auth/login').should('contain','auth/login');
     });
 
-   it('funcion del logo en registro', () => {
+   it.only('funcion del logo en registro', () => {
       cy.get('.justify-end > .text-sm').click();
-      cy.wait(2000);  
-      cy.url('https://ticketazo.com.ar/auth/registerUser').should('contains', 'registerUser');
+      cy.get('[data-cy="btn-register-user"]').should('be.visible').click();
+      cy.url('https://ticketazo.com.ar/auth/registerUser').should('contain', 'registerUser');
    });
 
    it("funcion del logo en recuperacion de contrase;a", () => {
@@ -34,12 +34,11 @@ describe("verificar que el logo redireccione al home page independientemente de 
     cy.contains('Ticketazo').click();
    });
 
-   it.only('funcion del logo en creacion de eventos directos', () => {
+   it('funcion del logo en creacion de eventos directos', () => {
     cy.get('.justify-end > .text-sm').click();
     cy.get('[data-cy="btn-register-client"]').click();
-    cy.wait(2000);
-    cy.get('[data-layer="Content"]').click();
-    cy.wait(2000);
-    cy.url("https://ticketazo.com.ar/").should('eq', 'https://ticketazo.com.ar/');
+    cy.get('svg').first().click();   
+    // cy.get('[data-layer="Content"]').should('be.visible').click();
+    cy.url().should('eq', 'https://ticketazo.com.ar/');
    })
 })
