@@ -6,7 +6,7 @@ describe("Pruebas utilizando el usuario admin", () => {
         Links.Thome();
     });
 
-    it.only("verfiicacion de las responsabilidades del admin", () => {
+    it.only("verificacion del buttom display", () => {
       ElementsES.LogElement();
       cy.wait(1000);
      
